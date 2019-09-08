@@ -83,10 +83,11 @@ def scrape():
     access_table = tables[1]
     # Rename column names
     access_table.columns = ['Facts', 'Value']
-    access_table
+    facts_table = access_table.set_index('Facts')
+    facts_table
 
     # add a htmlfile name inside of the brackets and it
-    mars_facts_html = access_table.to_html(buf=None)
+    mars_facts_html = facts_table.to_html(buf=None)
     # pprint(mars_facts_html)
 
     # browser.quit()
